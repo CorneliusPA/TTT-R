@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './App.css';
 import './index.css';
 import CardFlip from './CardFlip';
@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
-  const POST = 3001;
+  
   const [product_name, setName] = useState("");
   const [dept, setDept] = useState(0);
   const [product_description, setDescription] = useState("");
@@ -43,6 +43,12 @@ function App() {
       ]);
     });
   };
+
+  useEffect(() => {
+    Axios.get("https://cornelius-portfolio.herokuapp.com/products").then((response) => {
+      setListOfProducts(response.data);
+    });
+  }, []);
 
   const getProducts = () => {
     Axios.get(`https://cornelius-portfolio.herokuapp.com/products`).then((response) => {
