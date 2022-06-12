@@ -22,7 +22,7 @@ const ProductFeedCard = (props) => {
                 />
                 <button
                   onClick={(props) => {
-                    props.updateProduct_Price(props.val.id);
+                    props.updateProduct_Price(val.id);
                   }}
                 >
                   {" "}
@@ -31,7 +31,7 @@ const ProductFeedCard = (props) => {
 
                 <button
                   onClick={(props) => {
-                    props.deleteProduct(props.val.id);
+                    props.deleteProduct(val.id);
                   }}
                 >
                   Delete
