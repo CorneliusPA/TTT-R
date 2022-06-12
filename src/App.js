@@ -24,20 +24,20 @@ function App() {
 
   const addProduct = () => {
     Axios.post(`https://cornelius-portfolio.herokuapp.com/create`, {
-      product_name: product_name,
-      dept: dept,
-      product_description: product_description,
-      product_image: product_image,
-      product_price: product_price,
-    }).then(() => {
+      product_name,
+      dept,
+       product_description,
+      product_image,
+       product_price,
+    }).then((response) => {
       setProductList([
         ...productList,
         {
-          product_name: product_name,
-          dept: dept,
-          product_description: product_description,
-          product_image: product_image,
-          product_price: product_price,
+          product_name,
+           dept,
+          product_description,
+           product_image,
+           product_price,
         },
       ]);
     });
@@ -84,6 +84,7 @@ function App() {
       setProductList(response.data);
     });
   };
+
 
   const updateProduct_Price = (id) => {
     Axios.put(`https://cornelius-portfolio.herokuapp.com/update`, { product_price: newPrice, id: id }).then(
@@ -141,14 +142,7 @@ function App() {
     />
   </div>
 
-          <CreateProduct
-          setName={setName}
-          setDept={setDept}
-          setDescription={setDescription}
-          setImage={setImage}
-          setPrice={setPrice}
-          addProduct ={addProduct}
-          />
+         
 
       <div className="products">
         
