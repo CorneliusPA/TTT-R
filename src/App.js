@@ -4,6 +4,9 @@ import './index.css';
 import Axios from "axios";
 import Logo from "./Logo";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from "./Navbar";
+import CreateProduct from "./CreateProduct";
+import ProductFeedCard from "./ProductFeedCard";
 
 
 function App() {
@@ -126,103 +129,40 @@ function App() {
     
    
   <div>
-    <table style={{backgroundColor:"orange", textAlign:"center", marginLeft:"auto", marginRight:"auto"}}>
-        <tbody><tr>
-        <th  onClick={getProducts}>All Products</th>
-         <th  onClick={getTradingCards}>Trading Cards</th>
-         <th  onClick={getFigures}>Figures</th>
-         <th  onClick={getPlushies}>Plushies</th>
-         <th  onClick={getVideoGames}>Video Games</th>
-         <th  onClick={getConsoles}>Consoles</th>
-        </tr></tbody>
-        </table>
+    <Navbar
+    
+           getProducts={getProducts}
+           getTradingCards={getTradingCards}
+           getFigures={getFigures}
+           getPlushies={getPlushies}
+           getVideoGames={getVideoGames}
+           getConsoles={getConsoles}
+    
+    />
   </div>
 
-      <div className="information">
-<div className="informationBox" >
-        <label>Name:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setName(event.target.value);
-          }}
-        />
-        <label>Dept:</label>
-        <input
-          type="number"
-          onChange={(event) => {
-            setDept(event.target.value);
-          }}
-        />
-        <label>Description:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setDescription(event.target.value);
-          }}
-        />
-        <label>Image:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setImage(event.target.value);
-          }}
-        />
-        <label>Price:</label>
-        <input
-          type="number"
-          onChange={(event) => {
-            setPrice(event.target.value);
-          }}
-        />
-       
-        </div>
-         <button className="boxButton" onClick={addProduct}>Add Product</button>
+          <CreateProduct
+          setName={setName}
+          setDept={setDept}
+          setDescription={setDescription}
+          setImage={setImage}
+          setPrice={setPrice}
+          addProduct ={addProduct}
+          />
 
-      </div>
       <div className="products">
         
 <div className="productGrid"> 
         {productList.map((val) => {
           return ( 
          
-            <div className="product" key={val.product_name}>
-              
-              <div>
-                <h3>Name: {val.product_name}</h3>
-                <h3>Dept: {val.dept}</h3>
-                <h3>Description: {val.product_description}</h3>
-                <img src={val.product_image} alt="product image" width={"225px"} height={"325px"}/>
-                <h3>Price: ${val.product_price}</h3>
-              </div>
-             
+           <ProductFeedCard val={val} key={val.product_name}
+           setNewPrice={setNewPrice}
+           updateProduct_Price={updateProduct_Price}
+           deleteProduct={deleteProduct}
 
-              <div>
-                <input
-                  type="text"
-                  placeholder="Update Price?"
-                  onChange={(event) => {
-                    setNewPrice(event.target.value);
-                  }}
-                />
-                <button
-                  onClick={() => {
-                    updateProduct_Price(val.id);
-                  }}
-                >
-                  {" "}
-                  Update
-                </button>
+           />
 
-                <button
-                  onClick={() => {
-                    deleteProduct(val.id);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
           );
         })}
       </div>
