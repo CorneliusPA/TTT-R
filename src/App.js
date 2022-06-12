@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
 import './App.css';
 import './index.css';
-import CardFlip from './CardFlip';
 import Axios from "axios";
 import Logo from "./Logo";
-
-import Create from "./Create";
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -46,7 +42,7 @@ function App() {
 
   useEffect(() => {
     Axios.get("https://cornelius-portfolio.herokuapp.com/products").then((response) => {
-      setListOfProducts(response.data);
+      setProductList(response.data);
     });
   }, []);
 
@@ -131,23 +127,16 @@ function App() {
    
   <div>
     <table style={{backgroundColor:"orange", textAlign:"center", marginLeft:"auto", marginRight:"auto"}}>
-        
+        <tbody><tr>
         <th  onClick={getProducts}>All Products</th>
          <th  onClick={getTradingCards}>Trading Cards</th>
          <th  onClick={getFigures}>Figures</th>
          <th  onClick={getPlushies}>Plushies</th>
          <th  onClick={getVideoGames}>Video Games</th>
          <th  onClick={getConsoles}>Consoles</th>
-        
+        </tr></tbody>
         </table>
   </div>
-
-
-  
-
-        
-  
-
 
       <div className="information">
 <div className="informationBox" >
@@ -194,10 +183,10 @@ function App() {
       <div className="products">
         
 <div className="productGrid"> 
-        {productList.map((val, key) => {
+        {productList.map((val) => {
           return ( 
          
-            <div className="product">
+            <div className="product" key={val.product_name}>
               
               <div>
                 <h3>Name: {val.product_name}</h3>
