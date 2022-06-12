@@ -8,34 +8,7 @@ const ProductFeedCard = (props) => {
                 <h3>Dept: {props.val.dept}</h3>
                 <h3>Description: {props.val.product_description}</h3>
                 <img src={props.val.product_image} alt="product image" width={"225px"} height={"325px"}/>
-                <h3>Price: ${props.props.val.product_price}</h3>
-              </div>
-             
-
-              <div>
-                <input
-                  type="text"
-                  placeholder="Update Price?"
-                  onChange={(event) => {
-                    props.setNewPrice(event.target.value);
-                  }}
-                />
-                <button
-                  onClick={(props) => {
-                    props.updateProduct_Price(val.id);
-                  }}
-                >
-                  {" "}
-                  Update
-                </button>
-
-                <button
-                  onClick={(props) => {
-                    props.deleteProduct(val.id);
-                  }}
-                >
-                  Delete
-                </button>
+                <h3>Price: ${props.val.product_price}</h3>
               </div>
             </div>
         </>

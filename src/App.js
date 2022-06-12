@@ -156,12 +156,34 @@ function App() {
         {productList.map((val) => {
           return ( 
          
-           <ProductFeedCard val={val} key={val.product_name}
-           setNewPrice={setNewPrice}
-           updateProduct_Price={updateProduct_Price}
-           deleteProduct={deleteProduct}
+           <ProductFeedCard val={val} key={val.product_name}>
+<div>
+                <input
+                  type="text"
+                  placeholder="Update Price?"
+                  onChange={(event) => {
+                    setNewPrice(event.target.value);
+                  }}
+                />
+                <button
+                  onClick={() => {
+                    updateProduct_Price(val.id);
+                  }}
+                >
+                  {" "}
+                  Update
+                </button>
 
-           />
+                <button
+                  onClick={() => {
+                    deleteProduct(val.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+
+           </ProductFeedCard>
 
           );
         })}
