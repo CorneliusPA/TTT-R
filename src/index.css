@@ -87,7 +87,9 @@ table tr th:hover{
 
 
 
-label { margin-right: 10px; }
+label { 
+  margin-right: 10px; 
+}
 
 .App {
   display: flex;
@@ -133,7 +135,7 @@ input {
  button {
   width: 150px;
   height: 30px;
-  margin-top: 5px;
+  margin-top: 4px;
 } 
 
  th:hover {
