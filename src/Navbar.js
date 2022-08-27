@@ -6,7 +6,7 @@ function Navbar(props) {
 
 
     return (
-        <table style={{backgroundColor:"orange", textAlign:"center", marginLeft:"auto", marginRight:"auto"}}>
+        <table className='Navbar'>
         <tbody><tr>
         <th  onClick={props.getProducts}>All Products</th>
          <th  onClick={props.getTradingCards}>Trading Cards</th>

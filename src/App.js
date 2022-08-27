@@ -123,8 +123,6 @@ function App() {
 
      <h1 className="title App">Turbo Tiger Trades </h1>
        <Logo/>
-        
-   
    
     <div className="App">
     
@@ -142,7 +140,7 @@ function App() {
     />
   </div>
 
-         
+         <div className="feed">
 
       <div className="products">
         
@@ -155,23 +153,13 @@ function App() {
           );
         })}
       </div>
+      
+      </div>
+    
     </div> 
 
  </div>
-    
-    
-  
-     
-     
-    
-  
-    
-
-  
-  
-  
-    
-    
+   
     </>
 )  
 }
