@@ -141,11 +141,7 @@ input {
  th:hover {
   cursor: pointer;
 }
-.productGrid{
-  display: grid;
-  grid-template-columns: 13rem 13rem 13rem;
-  grid-template-rows: 27rem;
-}
+
 
 .Navbar{
   background-color: orange; 
@@ -153,38 +149,61 @@ input {
   margin-left: auto; 
   margin-right: auto; 
   height: 2rem;
-  
+  width: 90%;
+  max-width: 700px;
 }
 
-tr{
+th{
   margin: 3px;
-  border: solid 1px black;
+  border: solid 5px black;
+  font-size: .7em;
 }
 
-.feed{
-  min-width: 40rem;
-  min-height: 58rem;
-  margin-left: -1rem;
-}
+
 
 .products {
   display: grid;
 
   justify-content: center;
-  width: 100%;
+
+}
+
+.productGrid{
+  display: grid;
+  grid-template-columns: 124px 124px 124px;
+  grid-template-rows: 285px;
+}
+
+body{
+  background-image: url("../public/TTTBG.png");
+  background-position: center top;
+  background-size: cover;
+  height: 100%;
+ 
 }
 
 .product {
-  width: 13rem;
-  height: 27rem;
+ 
+  width: 124px;
+  min-width: 124px;
+  min-height: 285px;
+  max-height: 285px;
+  height: 285px;
   border: 1px solid white;
   border-radius: 20px;
   color: white;
-  margin: 10px;
-  
-  
+  background-color: rgba(75, 75, 75, .4);
   font-family: 'Courier New', Courier, monospace;
   
+}
+
+.cardFont{
+  font-size: 0.75rem;
+}
+
+.productImg{
+  width: 110px;
+  height: 180px;
 }
 
 .product h3 {
