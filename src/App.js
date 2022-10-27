@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import './index.css';
-import Axios from "axios";
+import axios from "axios";
 import Logo from "./Logo";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./Navbar";
@@ -22,7 +22,7 @@ function App() {
   const [productList, setProductList] = useState([]);
 
   const addProduct = () => {
-    Axios.post(`https://cornelius-portfolio.herokuapp.com/create`, {
+    axios.post(`https://cornelius-portfolio.herokuapp.com/create`, {
       product_name,
       dept,
        product_description,
@@ -43,50 +43,50 @@ function App() {
   };
 
   useEffect(() => {
-    Axios.get("https://cornelius-portfolio.herokuapp.com/products").then((response) => {
+    axios.get("https://cornelius-portfolio.herokuapp.com/products").then((response) => {
       setProductList(response.data);
     });
   }, []);
 
   const getProducts = () => {
-    Axios.get(`https://cornelius-portfolio.herokuapp.com/products`).then((response) => {
+    axios.get(`https://cornelius-portfolio.herokuapp.com/products`).then((response) => {
       setProductList(response.data);
     });
   };
 
   const getTradingCards = () => {
-    Axios.get(`https://cornelius-portfolio.herokuapp.com/trading_cards`).then((response) => {
+    axios.get(`https://cornelius-portfolio.herokuapp.com/trading_cards`).then((response) => {
       setProductList(response.data);
     });
   };
 
   const getFigures = () => {
-    Axios.get(`https://cornelius-portfolio.herokuapp.com/figures`).then((response) => {
+    axios.get(`https://cornelius-portfolio.herokuapp.com/figures`).then((response) => {
       setProductList(response.data);
     });
   };
 
   const getPlushies = () => {
-    Axios.get(`https://cornelius-portfolio.herokuapp.com/plushies`).then((response) => {
+    axios.get(`https://cornelius-portfolio.herokuapp.com/plushies`).then((response) => {
       setProductList(response.data);
     });
   };
 
   const getVideoGames = () => {
-    Axios.get(`https://cornelius-portfolio.herokuapp.com/video_games`).then((response) => {
+    axios.get(`https://cornelius-portfolio.herokuapp.com/video_games`).then((response) => {
       setProductList(response.data);
     });
   };
 
   const getConsoles = () => {
-    Axios.get(`https://cornelius-portfolio.herokuapp.com/consoles`).then((response) => {
+    axios.get(`https://cornelius-portfolio.herokuapp.com/consoles`).then((response) => {
       setProductList(response.data);
     });
   };
 
 
   const updateProduct_Price = (id) => {
-    Axios.put(`https://cornelius-portfolio.herokuapp.com/update`, { product_price: newPrice, id: id }).then(
+    axios.put(`https://cornelius-portfolio.herokuapp.com/update`, { product_price: newPrice, id: id }).then(
       (response) => {
         setProductList(
           productList.map((val) => {
@@ -107,7 +107,7 @@ function App() {
   };
 
   const deleteProduct = (id) => {
-    Axios.delete(`https://cornelius-portfolio.herokuapp.com/delete/${id}`).then((response) => {
+    axios.delete(`https://cornelius-portfolio.herokuapp.com/delete/${id}`).then((response) => {
       setProductList(
         productList.filter((val) => {
           return val.id != id;
